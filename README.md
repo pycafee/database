@@ -1,2 +1,2 @@
-# database
-This repository contains the files required to make the database for PyCafee
+# database_easy_stat
+Repositório para armazenar as DDL de sqlite para o projeto easy_stat
