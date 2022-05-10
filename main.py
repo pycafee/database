@@ -30,13 +30,16 @@ from database import insert_02, insert_03, insert_04 # Normality tests
 
 from database.checkers import _check_is_bool, _check_is_data_frame, _check_is_dict, _check_is_float_or_int
 from database.checkers import _check_is_float, _check_is_integer, _check_is_list, _check_is_numpy_1_D
-from database.checkers import _check_is_str, _check_data_in_range, _check_is_positive
+from database.checkers import _check_is_str, _check_data_in_range, _check_is_positive, _check_is_subplots
 from database.distributions import get_shapiro_wilk_tabulated_value, shapiro_wilk, ShapiroWilkNormalityTest, draw_shapiro_wilk_tabulated_values, shapiro_wilk_to_csv, shapiro_wilk_to_xlsx
 from database.helpers import _change_locale, _export_to_csv, _check_forbidden_character, _export_to_excel, _check_conflicting_filename, LanguageManagement, AlphaManagement, NDigitsManagement
 from database.helpers import _check_blank_space, _sep_checker, _check_figure_extension, _flat_list_of_lists, _check_plot_design, _check_which_density_gaussian_kernal_plot
 from database.helpers import _check_file_name_is_str
 from database.functions import multimode
 from database.plots import draw_dot_plot, draw_density_function
+from database.normalitycheck import KolmogorovSmirnov, get_kolmogorov_smirnov_tabulated_value, draw_kolmogorov_smirnov_tabulated_values, kolmogorov_smirnov_fit, kolmogorov_smirnov_to_csv
+from database.normalitycheck import kolmogorov_smirnov_to_xlsx, draw_lilliefors_tabulated_values, Lilliefors, draw_abdi_molin_tabulated_values, get_lilliefors_tabulated_value
+from database.normalitycheck import lilliefors_fit
 # from database import insert_06 # management
 
 
@@ -218,6 +221,53 @@ if __name__ == '__main__':
         winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
         print("_check_file_name_is_str was added")
 
+        get_kolmogorov_smirnov_tabulated_value.get_kolmogorov_smirnov_tabulated_value(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("get_kolmogorov_smirnov_tabulated_value was added")
+
+        KolmogorovSmirnov.KolmogorovSmirnov(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("KolmogorovSmirnov was added")
+
+        _check_is_subplots._check_is_subplots(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("_check_is_subplots was added")
+
+        draw_kolmogorov_smirnov_tabulated_values.draw_kolmogorov_smirnov_tabulated_values(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("draw_kolmogorov_smirnov_tabulated_values was added")
+
+        kolmogorov_smirnov_fit.kolmogorov_smirnov_fit(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("kolmogorov_smirnov_fit was added")
+
+        kolmogorov_smirnov_to_xlsx.kolmogorov_smirnov_to_xlsx(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("kolmogorov_smirnov_to_xlsx was added")
+
+        kolmogorov_smirnov_to_csv.kolmogorov_smirnov_to_csv(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("kolmogorov_smirnov_to_csv was added")
+
+        draw_lilliefors_tabulated_values.draw_lilliefors_tabulated_values(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("draw_lilliefors_tabulated_values was added")
+
+        Lilliefors.Lilliefors(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("Lilliefors was added")
+
+        draw_abdi_molin_tabulated_values.draw_abdi_molin_tabulated_values(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("draw_abdi_molin_tabulated_values was added")
+
+        get_lilliefors_tabulated_value.get_lilliefors_tabulated_value(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("get_lilliefors_tabulated_value was added")
+
+        lilliefors_fit.lilliefors_fit(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("lilliefors_fit was added")
 
         winsound.PlaySound('super_mario_finish.wav', winsound.SND_FILENAME)
         print("Done!")
