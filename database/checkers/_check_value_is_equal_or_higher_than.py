@@ -2,7 +2,7 @@ import sqlite3
 from pathlib import Path
 from database.func_aux import Funcoes as func
 
-def insert_06(database_name="base.db"):
+def _check_value_is_equal_or_higher_than(database_name):
 
 
     ####################################################################
@@ -13,17 +13,13 @@ def insert_06(database_name="base.db"):
     connection = sqlite3.connect(database_name)
     cursor = connection.cursor()
 
-
-    #########################################################################
-    ####################   FAZENDO INSERTS Específicos   ####################
-    #########################################################################
-
     #############################################
     ############ INSERINDO EM FUNCAO ############
     #############################################
 
+    func_name = '_check_value_is_equal_or_higher_than'
     params = [
-        ('Sample',),
+        (func_name,),
     ]
     cursor.executemany("""
         INSERT INTO Funcao VALUES (NULL, ?);
@@ -31,21 +27,20 @@ def insert_06(database_name="base.db"):
 
     connection.commit()
 
+    ###############################################################
+    ############ _check_value_is_equal_or_higher_than #############
+    ###############################################################
 
-    ################################
-    ############ Sample ############
-    ################################
+    id_funcao = func.query_func_id(func_name, cursor, connection)
 
-
-    ###########################
     position = 1
-    fk_id_function = 1
+    fk_id_function = id_funcao[0]
     fk_id_contributor = 1
 
     params = [
         [['Text',], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [['Sample',], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
-        # [['ShapiroWilkResultado',], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+        [['Error: lower value',], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [['Erro: valor mais baixo',], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
     ]
     for param in params:
         func.insert_into_message_message_parts(*param)
@@ -55,31 +50,13 @@ def insert_06(database_name="base.db"):
     position = position + 1
 
     params = [
-        [['Text',], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [['with mean',], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
-        # [['ShapiroWilkResultado',], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+        [['Text', "{param_name}", "Text", "{minimum}", "Text", "{value}"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [['The', "{param_name}", "parameter must be a number equal or higher than", "{minimum}", "but we got", "{value}"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [['O parâmetro', "{param_name}", "deve ser um número maior ou igual a", "{minimum}", "mas obtivemos", "{value}"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
     ]
     for param in params:
         func.insert_into_message_message_parts(*param)
     ###########################
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     #################################################################
@@ -92,5 +69,4 @@ def insert_06(database_name="base.db"):
 
 
 if __name__ == '__main__':
-    insert_06()
-    pass
+    _check_value_is_equal_or_higher_than()

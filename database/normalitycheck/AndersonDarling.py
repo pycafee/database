@@ -2,7 +2,7 @@ import sqlite3
 from pathlib import Path
 from database.func_aux import Funcoes as func
 
-def draw_density_function(database_name):
+def AndersonDarling(database_name):
 
 
     ####################################################################
@@ -17,7 +17,7 @@ def draw_density_function(database_name):
     ############ INSERINDO EM FUNCAO ############
     #############################################
 
-    func_name = 'draw_density_function'
+    func_name = 'AndersonDarling'
     params = [
         (func_name,),
     ]
@@ -27,9 +27,9 @@ def draw_density_function(database_name):
 
     connection.commit()
 
-    ################################################
-    ############ draw_density_function #############
-    ################################################
+    ##########################################
+    ############ AndersonDarling #############
+    ##########################################
 
     id_funcao = func.query_func_id(func_name, cursor, connection)
 
@@ -38,9 +38,21 @@ def draw_density_function(database_name):
     fk_id_contributor = 1
 
     params = [
-        [['Text', "{file}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [["The", "{file}", "file was exported!",], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
-        [["O arquivo", "{file}", "foi exportado!"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+        [['Text',], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["The AndersonDarling test was not performed yet. Use the 'fit' method to perform the test.",], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["O teste de AndersonDarling não foi realizado. Utilize o método 'fit' para realizar o teste.",], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1
+
+    params = [
+        [['Text'], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["AndersonDarling Normality test"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Teste de Normalidade de AndersonDarling"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
     ]
     for param in params:
         func.insert_into_message_message_parts(*param)
@@ -59,4 +71,4 @@ def draw_density_function(database_name):
 
 
 if __name__ == '__main__':
-    draw_density_function()
+    AndersonDarling()

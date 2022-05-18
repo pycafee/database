@@ -2,7 +2,7 @@ import sqlite3
 from pathlib import Path
 from database.func_aux import Funcoes as func
 
-def kolmogorov_smirnov_to_csv(database_name):
+def to_csv(database_name):
 
 
     ####################################################################
@@ -17,7 +17,7 @@ def kolmogorov_smirnov_to_csv(database_name):
     ############ INSERINDO EM FUNCAO ############
     #############################################
 
-    func_name = 'kolmogorov_smirnov_to_csv'
+    func_name = 'to_csv'
     params = [
         (func_name,),
     ]
@@ -27,9 +27,9 @@ def kolmogorov_smirnov_to_csv(database_name):
 
     connection.commit()
 
-    ####################################################
-    ############ kolmogorov_smirnov_to_csv #############
-    ####################################################
+    #################################
+    ############ to_csv #############
+    #################################
 
     id_funcao = func.query_func_id(func_name, cursor, connection)
 
@@ -51,8 +51,8 @@ def kolmogorov_smirnov_to_csv(database_name):
 
     params = [
         [['Text'], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [["KolmogorovSmirnovResult"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
-        [["KolmogorovSmirnovResultado"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+        [["Result"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Resultado"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
     ]
     for param in params:
         func.insert_into_message_message_parts(*param)
@@ -160,4 +160,4 @@ def kolmogorov_smirnov_to_csv(database_name):
 
 
 if __name__ == '__main__':
-    kolmogorov_smirnov_to_csv()
+    to_csv()

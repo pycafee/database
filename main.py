@@ -26,20 +26,18 @@ Created: 4th April, 2022.
 import os
 import winsound
 from database import creating_db, basic_inserts, default_inserts
-from database import insert_02, insert_03, insert_04 # Normality tests
+
 
 from database.checkers import _check_is_bool, _check_is_data_frame, _check_is_dict, _check_is_float_or_int
 from database.checkers import _check_is_float, _check_is_integer, _check_is_list, _check_is_numpy_1_D
-from database.checkers import _check_is_str, _check_data_in_range, _check_is_positive, _check_is_subplots
+from database.checkers import _check_is_str, _check_data_in_range, _check_is_positive, _check_is_subplots, _check_value_is_equal_or_higher_than
 from database.distributions import get_shapiro_wilk_tabulated_value, shapiro_wilk, ShapiroWilkNormalityTest, draw_shapiro_wilk_tabulated_values, shapiro_wilk_to_csv, shapiro_wilk_to_xlsx
 from database.helpers import _change_locale, _export_to_csv, _check_forbidden_character, _export_to_excel, _check_conflicting_filename, LanguageManagement, AlphaManagement, NDigitsManagement
 from database.helpers import _check_blank_space, _sep_checker, _check_figure_extension, _flat_list_of_lists, _check_plot_design, _check_which_density_gaussian_kernal_plot
 from database.helpers import _check_file_name_is_str
 from database.functions import multimode
-from database.plots import draw_dot_plot, draw_density_function
-from database.normalitycheck import KolmogorovSmirnov, get_kolmogorov_smirnov_tabulated_value, draw_kolmogorov_smirnov_tabulated_values, kolmogorov_smirnov_fit, kolmogorov_smirnov_to_csv
-from database.normalitycheck import kolmogorov_smirnov_to_xlsx, draw_lilliefors_tabulated_values, Lilliefors, draw_abdi_molin_tabulated_values, get_lilliefors_tabulated_value
-from database.normalitycheck import lilliefors_fit
+from database.normalitycheck import KolmogorovSmirnov, Lilliefors, AbdiMolin, AndersonDarling, ShapiroWilk, draw_critical_values, normalitycheck_fit_shapiro_wilk
+from database.normalitycheck import get_critical_value, to_xlsx, to_csv, normalitycheck_fit, draw_density_function
 # from database import insert_06 # management
 
 
@@ -67,18 +65,6 @@ if __name__ == '__main__':
         default_inserts.insert_default_inserts(database_name)
         winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
         print("insert_default_inserts was added")
-
-        insert_02.insert_kolmogorov_smirnov(database_name)
-        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
-        print("insert_kolmogorov_smirnov was added")
-
-        insert_03.insert_anderson_darling(database_name)
-        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
-        print("insert_anderson_darling was added")
-
-        insert_04.insert_lilliefors(database_name)
-        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
-        print("insert_lilliefors was added")
 
 
         _check_is_bool._check_is_bool(database_name)
@@ -173,9 +159,6 @@ if __name__ == '__main__':
         winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
         print("_check_conflicting_filename was added")
 
-        draw_dot_plot.draw_dot_plot(database_name)
-        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
-        print("draw_dot_plot was added")
 
         draw_density_function.draw_density_function(database_name)
         winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
@@ -221,9 +204,6 @@ if __name__ == '__main__':
         winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
         print("_check_file_name_is_str was added")
 
-        get_kolmogorov_smirnov_tabulated_value.get_kolmogorov_smirnov_tabulated_value(database_name)
-        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
-        print("get_kolmogorov_smirnov_tabulated_value was added")
 
         KolmogorovSmirnov.KolmogorovSmirnov(database_name)
         winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
@@ -233,41 +213,56 @@ if __name__ == '__main__':
         winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
         print("_check_is_subplots was added")
 
-        draw_kolmogorov_smirnov_tabulated_values.draw_kolmogorov_smirnov_tabulated_values(database_name)
-        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
-        print("draw_kolmogorov_smirnov_tabulated_values was added")
 
-        kolmogorov_smirnov_fit.kolmogorov_smirnov_fit(database_name)
-        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
-        print("kolmogorov_smirnov_fit was added")
 
-        kolmogorov_smirnov_to_xlsx.kolmogorov_smirnov_to_xlsx(database_name)
-        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
-        print("kolmogorov_smirnov_to_xlsx was added")
 
-        kolmogorov_smirnov_to_csv.kolmogorov_smirnov_to_csv(database_name)
-        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
-        print("kolmogorov_smirnov_to_csv was added")
 
-        draw_lilliefors_tabulated_values.draw_lilliefors_tabulated_values(database_name)
-        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
-        print("draw_lilliefors_tabulated_values was added")
 
         Lilliefors.Lilliefors(database_name)
         winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
         print("Lilliefors was added")
 
-        draw_abdi_molin_tabulated_values.draw_abdi_molin_tabulated_values(database_name)
+        draw_critical_values.draw_critical_values(database_name)
         winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
-        print("draw_abdi_molin_tabulated_values was added")
+        print("draw_critical_values was added")
 
-        get_lilliefors_tabulated_value.get_lilliefors_tabulated_value(database_name)
+        get_critical_value.get_critical_value(database_name)
         winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
-        print("get_lilliefors_tabulated_value was added")
+        print("get_critical_value was added")
 
-        lilliefors_fit.lilliefors_fit(database_name)
+        AbdiMolin.AbdiMolin(database_name)
         winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
-        print("lilliefors_fit was added")
+        print("AbdiMolin was added")
+
+        to_xlsx.to_xlsx(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("to_xlsx was added")
+
+        _check_value_is_equal_or_higher_than._check_value_is_equal_or_higher_than(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("_check_value_is_equal_or_higher_than was added")
+
+        to_csv.to_csv(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("to_csv was added")
+
+        normalitycheck_fit.normalitycheck_fit(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("normalitycheck_fit was added")
+
+
+        AndersonDarling.AndersonDarling(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("AndersonDarling was added")
+
+        ShapiroWilk.ShapiroWilk(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("ShapiroWilk was added")
+
+        normalitycheck_fit_shapiro_wilk.normalitycheck_fit_shapiro_wilk(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("normalitycheck_fit_shapiro_wilk was added")
+
 
         winsound.PlaySound('super_mario_finish.wav', winsound.SND_FILENAME)
         print("Done!")

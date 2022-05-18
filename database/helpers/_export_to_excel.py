@@ -86,9 +86,9 @@ def _export_to_excel(database_name):
     position = position + 1 #5
 
     params = [
-        [["Text", "{file_name}"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [["The data has been exported to file", "{file_name}"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
-        [["Os dados foram exportados para o arquivo", "{file_name}"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+        [["Text", "{file_name}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["The data has been exported to the", "{file_name}", "file"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Os dados foram exportados para o arquivo", "{file_name}", ""], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
     ]
     for param in params:
         func.insert_into_message_message_parts(*param)

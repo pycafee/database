@@ -2,7 +2,7 @@ import sqlite3
 from pathlib import Path
 from database.func_aux import Funcoes as func
 
-def get_kolmogorov_smirnov_tabulated_value(database_name):
+def get_critical_value(database_name):
 
 
     ####################################################################
@@ -17,7 +17,7 @@ def get_kolmogorov_smirnov_tabulated_value(database_name):
     ############ INSERINDO EM FUNCAO ############
     #############################################
 
-    func_name = 'get_kolmogorov_smirnov_tabulated_value'
+    func_name = 'get_critical_value'
     params = [
         (func_name,),
     ]
@@ -27,9 +27,9 @@ def get_kolmogorov_smirnov_tabulated_value(database_name):
 
     connection.commit()
 
-    #################################################################
-    ############ get_kolmogorov_smirnov_tabulated_value #############
-    #################################################################
+    #############################################
+    ############ get_critical_value #############
+    #############################################
 
     id_funcao = func.query_func_id(func_name, cursor, connection)
 
@@ -50,9 +50,9 @@ def get_kolmogorov_smirnov_tabulated_value(database_name):
     position = position + 1 # 2
 
     params = [
-        [['Text', "{n_rep}"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [["The minimum number of observations to obtain the tabulated value of the Kolmogorov Smirnov test is '2', but we got", "{n_rep}"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
-        [["O número mínimo de observações para obter o valor tabelado do teste Kolmogorov Smirnov é '2', mas obtivemos", "{n_rep}"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+        [['Text', "{TestName}", "test is", "{n}", "but we got", "{n_rep}"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["The minimum number of observations to obtain the critical value of the", "{TestName}", "test is", "{n}", "but we got", "{n_rep}"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["O número mínimo de observações para obter o valor crítico do teste de", "{TestName}", "é", "{n}", "mas obtivemos", "{n_rep}"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
     ]
     for param in params:
         func.insert_into_message_message_parts(*param)
@@ -63,8 +63,8 @@ def get_kolmogorov_smirnov_tabulated_value(database_name):
 
     params = [
         [['Text', 'Text', 'Text'], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [["KolmogorovSmirnovResult", "tabulate", "alpha"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
-        [["KolmogorovSmirnovResultado", "tabelado", "alfa"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+        [["Result", "critical", "alpha"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Resultado", "critico", "alfa"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
     ]
     for param in params:
         func.insert_into_message_message_parts(*param)
@@ -80,4 +80,4 @@ def get_kolmogorov_smirnov_tabulated_value(database_name):
 
 
 if __name__ == '__main__':
-    get_kolmogorov_smirnov_tabulated_value()
+    get_critical_value()

@@ -63,7 +63,7 @@ def _export_to_csv(database_name):
 
     params = [
         [["Text", "{file_name}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [["The", "{file_name}", "was exported!"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["The", "{file_name}", "file was exported!"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
         [["O arquivo", "{file_name}", " foi exportado!"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
     ]
     for param in params:
