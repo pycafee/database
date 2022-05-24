@@ -28,7 +28,7 @@ import winsound
 from database import creating_db, basic_inserts, default_inserts
 
 
-from database.checkers import _check_is_bool, _check_is_data_frame, _check_is_dict, _check_is_float_or_int
+from database.checkers import _check_is_bool, _check_is_data_frame, _check_is_dict, _check_is_float_or_int, _check_list_length
 from database.checkers import _check_is_float, _check_is_integer, _check_is_list, _check_is_numpy_1_D
 from database.checkers import _check_is_str, _check_data_in_range, _check_is_positive, _check_is_subplots, _check_value_is_equal_or_higher_than
 from database.distributions import get_shapiro_wilk_tabulated_value, shapiro_wilk, ShapiroWilkNormalityTest, draw_shapiro_wilk_tabulated_values, shapiro_wilk_to_csv, shapiro_wilk_to_xlsx
@@ -37,8 +37,8 @@ from database.helpers import _check_blank_space, _sep_checker, _check_figure_ext
 from database.helpers import _check_file_name_is_str
 from database.functions import multimode
 from database.normalitycheck import KolmogorovSmirnov, Lilliefors, AbdiMolin, AndersonDarling, ShapiroWilk, draw_critical_values, normalitycheck_fit_shapiro_wilk
-from database.normalitycheck import get_critical_value, to_xlsx, to_csv, normalitycheck_fit, draw_density_function
-# from database import insert_06 # management
+from database.normalitycheck import get_critical_value, to_xlsx, to_csv, normalitycheck_fit, draw_density_function, NormalityCheck
+from database.sample import Sample, StudentDistribution
 
 
 
@@ -262,6 +262,26 @@ if __name__ == '__main__':
         normalitycheck_fit_shapiro_wilk.normalitycheck_fit_shapiro_wilk(database_name)
         winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
         print("normalitycheck_fit_shapiro_wilk was added")
+
+
+        NormalityCheck.NormalityCheck(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("NormalityCheck was added")
+
+
+        Sample.Sample(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("Sample was added")
+
+
+        _check_list_length._check_list_length(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("_check_list_length was added")
+
+
+        StudentDistribution.StudentDistribution(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("_check_list_length was added")
 
 
         winsound.PlaySound('super_mario_finish.wav', winsound.SND_FILENAME)
