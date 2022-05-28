@@ -29,7 +29,7 @@ from database import creating_db, basic_inserts, default_inserts
 
 
 from database.checkers import _check_is_bool, _check_is_data_frame, _check_is_dict, _check_is_float_or_int, _check_list_length
-from database.checkers import _check_is_float, _check_is_integer, _check_is_list, _check_is_numpy_1_D
+from database.checkers import _check_is_float, _check_is_integer, _check_is_list, _check_is_numpy_1_D, _check_array_lower_size
 from database.checkers import _check_is_str, _check_data_in_range, _check_is_positive, _check_is_subplots, _check_value_is_equal_or_higher_than
 from database.distributions import get_shapiro_wilk_tabulated_value, shapiro_wilk, ShapiroWilkNormalityTest, draw_shapiro_wilk_tabulated_values, shapiro_wilk_to_csv, shapiro_wilk_to_xlsx
 from database.helpers import _change_locale, _export_to_csv, _check_forbidden_character, _export_to_excel, _check_conflicting_filename, LanguageManagement, AlphaManagement, NDigitsManagement
@@ -281,8 +281,11 @@ if __name__ == '__main__':
 
         StudentDistribution.StudentDistribution(database_name)
         winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
-        print("_check_list_length was added")
+        print("StudentDistribution was added")
 
+        _check_array_lower_size._check_array_lower_size(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("_check_array_lower_size was added")
 
         winsound.PlaySound('super_mario_finish.wav', winsound.SND_FILENAME)
         print("Done!")

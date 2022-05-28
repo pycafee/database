@@ -183,8 +183,239 @@ def StudentDistribution(database_name):
 
     params = [
         [["Text", "Text", "Text", "Text", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [["Student", "Higher", "Lower", "Alpha", "Distribution"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Student", "Upper", "Lower", "Alpha", "Distribution"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
         [["Student", "Superior", "Inferior", "Alfa", "Distribuicao"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 14
+
+    params = [
+        [["Text", "{mean}", "Text", "{value}", "Text", "{100*(1-alfa)}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["The mean (", "{mean}", ") is equal to the constant (", "{value}", ") (with", "{100*(1-alfa)}", "% confidence)"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["A média (", "{mean}", ") é igual a constante (", "{value}", ") (com", "{100*(1-alfa)}", "% de confiança)"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 15
+
+    params = [
+        [["Text", "{statistic}", "Text", "{critical_low},{Critical_high}", "Text", "{mean}", "Text", "{value}", "Text", "{100*(1-alfa)}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Since the test statistic (", "{statistic}", ") is a number between the critical values (", "{critical_low},{Critical_high}", "), there is no evidence to reject the null hypothesis, and we can say that the mean (", "{mean}", ") is equal to the constant (", "{value}", ") (with", "{100*(1-alfa)}", "% confidence)."], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Como a estatística do teste (", "{statistic}", ") é um número entre os valores críticos (", "{critical_low},{Critical_high}", ") não existem evidências para rejeitar a hipótese nula, e podemos dizer que a média (", "{mean}", ") é igual a constante (", "{value}", ") (com", "{100*(1-alfa)}", "% de confiança)"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 16
+
+    params = [
+        [["Text", "{mean}", "Text", "{value}", "Text", "{100*(1-alfa)}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["The mean (", "{mean}", ") is different from the constant (", "{value}", ") (with", "{100*(1-alfa)}", "% confidence)"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["A média (", "{mean}", ") é diferente da constante (", "{value}", ") (com", "{100*(1-alfa)}", "% de confiança)"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 17
+
+    params = [
+        [["Text", "{statistic}", "Text", "{critical_high}", "Text", "{mean}", "Text", "{value}", "Text", "{100*(1-alfa)}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Since the test statistic (", "{statistic}", ") is higher than the upper critical value (", "{critical_high}", "), we have evidence to reject the null hypothesis of equality of means, and we can say that the mean (", "{mean}", ") is different from the constant (", "{value}", ") (with", "{100*(1-alfa)}", "% confidence)"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Como a estatística do teste (", "{statistic}", ") é maior do que o valor crítico superior (", "{critical_high}", ") temos evidências para rejeitar a hipótese nula de igualdade das médias, e podemos dizer que a média (", "{mean}", ") é diferente da constante (", "{value}", ") (com", "{100*(1-alfa)}", "% de confiança)"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 18
+
+    params = [
+        [["Text", "{statistic}", "Text", "{critical_low}", "Text", "{mean}", "Text", "{value}", "Text", "{100*(1-alfa)}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Since the test statistic (", "{statistic}", ") is lower than the lower critical value (", "{critical_low}", "),  we have evidence to reject the null hypothesis of equality of means, and we can say that the mean (", "{mean}", ") is different from constant (", "{value}", ") (with", "{100*(1-alfa)}", "% confidence)"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Como a estatística do teste (", "{statistic}", ") é menor do que o valor crítico inferior (", "{critical_low}", ") temos evidências para rejeitar a hipótese nula de igualdade das médias, e podemos dizer que a média (", "{mean}", ") é diferente da constante (", "{value}", ") (com", "{100*(1-alfa)}", "% de confiança)"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 19
+
+    params = [
+        [["Text", "{p_value}", "Text", "{alfa}", "Text", "{mean}", "Text", "{value}", "Text", "{100*(1-alfa)}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Since the p-value (", "{p_value}", ") is lower than the adopted significance level (", "{alfa}", "), we have evidence to reject the null hypothesis of equality of means, and we can say that the mean (", "{mean}", ") is different from the constant (", "{value}", ") (with", "{100*(1-alfa)}", "% confidence)"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Como o p-valor (", "{p_value}", ") é menor do que o nível de significância adotado (", "{alfa}", "),  temos evidências para rejeitar a hipótese nula de igualdade das médias, e podemos dizer que a média (", "{mean}", ") é diferente da constante (", "{value}", ") (com", "{100*(1-alfa)}", "% de confiança)"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 20
+
+    params = [
+        [["Text", "{p_value}", "Text", "{alfa}", "Text", "{mean}", "Text", "{value}", "Text", "{100*(1-alfa)}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Since the p-value (", "{p_value}", ") is higher than the adopted significance level (", "{alfa}", "), we do not have evidence to reject the hypothesis of equality between the means, and we can say that the mean (", "{mean}", ") is equal to the constant (", "{value}", ") (with", "{100*(1-alfa)}", "% confidence)"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Como o p-valor (", "{p_value}", ") é maior do que o nível de significância adotado (", "{alfa}", "), nós não temos evidências para rejeitar a hipótese nula de igualdade entre a médias, e podemos dizer que a média (", "{mean}", ") é igual a constante (", "{value}", ") (com", "{100*(1-alfa)}", "% de confiança)"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 21
+
+    params = [
+        [["Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["OneSampleStudentComparison", "statistic", "critical", "p_value", "alpha"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["OneSampleStudentComparison", "estatistica", "critico", "p_valor", "alfa"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 22
+
+    params = [
+        [["Text", "{x_exp.mean}", "Text", "{value}", "Text", "{100*(1-alfa)}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["The mean (", "{x_exp.mean}", ") is higher than the constant (", "{value}", ") (with", "{100*(1-alfa)}", "% confidence)"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["A média (", "{x_exp.mean}", ") é maior do que a constante (", "{value}", ") (com", "{100*(1-alfa)}", "% de confiança)"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+
+    ###########################
+    position = position + 1 # 23
+
+    params = [
+        [["Text", "{statistic}", "Text", "{critical.Lower}", "Text", "{value}", "Text", "{x_exp.mean()}", "Text", "{100*(1-alfa)}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Since the test statistic (", "{statistic}", ") is higher than the lower critical value (", "{critical.Lower}", "), we have no evidence to reject the null hypothesis of equality between the means, and we can say that the mean (", "{mean}", ") is equal to the constant (", "{value}", ") (with", "{100*(1-alfa)}", "% confidence)"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Como a estatística do teste (", "{statistic}", ") é maior do que o valor crítico inferior (", "{critical.Lower}", "), não temos evidências para rejeitar a hipótese nula de igualdade entre a médias, e podemos dizer que a média (", "{mean}", ") é igual a constante (", "{value}",  ") (com", "{100*(1-alfa)}", "% de confiança)"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 24
+
+    params = [
+        [["Text", "{statistic}", "Text", "{critical.Lower}", "Text", "{mean}", "Text", "{value}", "Text", "{100*(1-alfa)}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Since the test statistic (", "{statistic}", ") is lower than the upper critical value (", "{critical.Lower}", "), we have no evidence to reject the null hypothesis of equality between the means, and we can say that the mean (", "{mean}", ") is equal to the constant (", "{value}", ") (with", "{100*(1-alfa)}", "% confidence)"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Como a estatística do teste (", "{statistic}", ") é menor do que o valor crítico superior (", "{critical.Lower}", "), não temos evidências para rejeitar a hipótese nula de igualdade entre a médias, e podemos dizer que a média (", "{mean}", ") é igual a constante (", "{value}",  ") (com", "{100*(1-alfa)}", "% de confiança)"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 25
+
+    params = [
+        [["Text", "{p_value}", "Text", "{alfa}", "Text", "{mean}", "Text", "{value}", "Text", "{100*(1-alfa)}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Since the p-value (", "{p_value}", ") is lower than the adopted significance level (", "{alfa}", "), we have evidence to reject the null hypothesis of equality of means, and we can say that the mean (", "{mean}", ") is higher than the constant (", "{value}", ") (with", "{100*(1-alfa)}", "% confidence)"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Como o p-valor (", "{p_value}", ") é menor do que o nível de significância adotado (", "{alfa}", "), temos evidências para rejeitar a hipótese nula de igualdade das médias, e podemos dizer que a média (", "{mean}", ") é maior do que a constante (", "{value}", ") (com", "{100*(1-alfa)}", "% de confiança)"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 26
+
+    params = [
+        [["Text", "{p_value}", "Text", "{alfa}", "Text", "{mean}", "Text", "{value}", "Text", "{100*(1-alfa)}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Since the p-value (", "{p_value}", ") is higher than the adopted significance level (", "{alfa}", "), we have no evidence to reject the null hypothesis of equality between the means, and we can say that the mean (", "{mean}", ") is equal to the constant (", "{value}", ") (with", "{100*(1-alfa)}", "% confidence)"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Como o p-valor (", "{p_value}", ") é maior do que o nível de signficância adotado (", "{alfa}", "), não temos evidências para rejeitar a hipótese nula de igualdade entre as médias, e podemos dizer que a média (", "{mean}", ") é igual a constante (", "{value}", ") (com", "{100*(1-alfa)}", "% de confiança)"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 27
+
+    params = [
+        [["Text", "{value}", "Text", "{mean}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["The constant (", "{value}", ") and the mean (", "{mean}", ") are exactly the same"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["A constante (", "{value}", ") e a média (", "{mean}", ") são exatamente iguais"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+
+    ###########################
+    position = position + 1 # 28
+
+    params = [
+        [["Text", "{x_exp.mean}", "Text", "{value}", "Text", "{100*(1-alfa)}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["The mean (", "{x_exp.mean}", ") is lower than the constant (", "{}", ") (with", "{100*(1-alfa)}", "% confidence)"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["A média (", "{x_exp.mean}", ") é menor do que a constante (", "{value}", ") (com", "{100*(1-alfa)}", "% de confiança)"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 29
+
+    params = [
+        [["Text", "{statistic}", "Text", "{critical[1]}", "Text", "{x_exp.mean()}", "Text", "{value}", "Text", "{100*(1-alfa)}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Since the test statistic (", "{statistic}", ") is lower than the lower critical value (", "{critical[1]}", "), we have evidence to reject the null hypothesis of equality of means, and we can say that the mean (", "{x_exp.mean()}", ") is lower than the constant (", "{value}", ") (with", "{100*(1-alfa)}", "% confidence)"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Como a estatística do teste (", "{statistic}", ") é menor do que o valor crítico inferior (", "{critical[1]}", "), temos evidências para rejeitar a hipótese nula de igualdade das médias, e podemos dizer que a média (", "{x_exp.mean()}", ") é menor do que a constante (", "{value}", ") (com", "{100*(1-alfa)}", "% de confiança)"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 30
+
+    params = [
+        [["Text", "{p_value}", "Text", "{alfa}", "Text", "{mean}", "Text", "{value}", "Text", "{100*(1-alfa)}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Since the p-value (", "{p_value}", ") is lower than the adopted significance level (", "{alfa}", "), we have evidence to reject the null hypothesis of equality of means, and we can say that the mean (", "{mean}", ") is lower than the constant (", "{value}", ") (with", "{100*(1-alfa)}", "% confidence)"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Como o p-valor (", "{p_value}", ") é menor do que o nível de significância adotado (", "{alfa}", "), temos evidências para rejeitar a hipótese nula de igualdade das médias, e podemos dizer que a média (", "{mean}", ") é menor do que a constante (", "{value}", ") (com", "{100*(1-alfa)}", "% de confiança)"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 31
+
+    params = [
+        [["Text", "{param_name}", "Text", "{critical}", "Text", "{p-value}", "Text", "{comparison}"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["The", "{param_name}", "parameter only accepts the keys", "{critical}", "or", "{p-value}", "but we got", "{comparison}"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["O parâmetro", "{param_name}", "aceita como chave apenas", "{critical}", "ou", "{p-value}", "mas recebemos", "{comparison}"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+
+    ###########################
+    position = position + 1 # 32
+
+    params = [
+        [["Text", "{statistic}", "Text", "{critical_high}", "Text", "{mean}", "Text", "{value}", "Text", "{100*(1-alfa)}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Since the test statistic (", "{statistic}", ") is higher than the upper critical value (", "{critical_high}", "), we have evidence to reject the null hypothesis of equality of means, and we can say that the mean (", "{mean}", ") is higher than the constant (", "{value}", ") (with", "{100*(1-alfa)}", "% confidence)"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Como a estatística do teste (", "{statistic}", ") é maior do que o valor crítico superior (", "{critical_high}", ") temos evidências para rejeitar a hipótese nula de igualdade das médias, e podemos dizer que a média (", "{mean}", ") é maior do que a constante (", "{value}", ") (com", "{100*(1-alfa)}", "% de confiança)"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
     ]
     for param in params:
         func.insert_into_message_message_parts(*param)
