@@ -56,8 +56,8 @@ def normalitycheck_fit(database_name):
 
     params = [
         [['Text', "{details}"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [["The 'details' parameter only accepts 'short' or 'full' as values, but we got", "{details}"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
-        [["O parâmetro 'details' aceita apenas 'short' ou 'full' como valores, mas obtivemos", "{details}"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+        [["The 'details' parameter only accepts 'short', 'full' or 'binary' as values, but we got", "{details}"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["O parâmetro 'details' aceita apenas 'short', 'full' ou 'binary' como valores, mas obtivemos", "{details}"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
     ]
     for param in params:
         func.insert_into_message_message_parts(*param)
