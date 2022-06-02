@@ -39,54 +39,6 @@ def _check_which_density_gaussian_kernal_plot(database_name):
 
     params = [
         [['Text',], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [["Error: value not acceptable"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
-        [["Erro: valor não aceitável"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
-    ]
-    for param in params:
-        func.insert_into_message_message_parts(*param)
-    ###########################
-
-    ###########################
-    position = position + 1 #2
-
-    params = [
-        [['Text', "{word}"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [["The 'which' parameter does not accepts the character", "{word}"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
-        [["O parâmetro 'which' não aceita o caractere", "{word}"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
-    ]
-    for param in params:
-        func.insert_into_message_message_parts(*param)
-    ###########################
-
-    ###########################
-    position = position + 1 #3
-
-    params = [
-        [['Text'], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [["This parameter only accepts the following keys:"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
-        [["Este parâmetro aceita apenas as seguintes chaves:"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
-    ]
-    for param in params:
-        func.insert_into_message_message_parts(*param)
-    ###########################
-
-    ###########################
-    position = position + 1 #4
-
-    params = [
-        [['Text',], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [['The keys must be separated by a comma (',')',], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
-        [['As chaves devem ser separadas por uma vírgula (',')',], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
-    ]
-    for param in params:
-        func.insert_into_message_message_parts(*param)
-    ###########################
-
-    ###########################
-    position = position + 1 #5
-
-    params = [
-        [['Text',], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
         [['Error: no key match found',], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
         [['Erro: nenhuma correspondência de chave encontrada',], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
     ]
@@ -95,7 +47,7 @@ def _check_which_density_gaussian_kernal_plot(database_name):
     ###########################
 
     ###########################
-    position = position + 1 #6
+    position = position + 1 #2
 
     params = [
         [['Text', "{value}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
@@ -107,7 +59,7 @@ def _check_which_density_gaussian_kernal_plot(database_name):
     ###########################
 
     ###########################
-    position = position + 1 #7
+    position = position + 1 #3
 
     params = [
         [['Text',], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
@@ -119,7 +71,7 @@ def _check_which_density_gaussian_kernal_plot(database_name):
     ###########################
 
     ###########################
-    position = position + 1 #8
+    position = position + 1 #4
 
     params = [
         [['Text',], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
@@ -131,7 +83,7 @@ def _check_which_density_gaussian_kernal_plot(database_name):
     ###########################
 
     ###########################
-    position = position + 1 #9
+    position = position + 1 #5
 
     params = [
         [['Text',], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ

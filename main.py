@@ -34,7 +34,7 @@ from database.checkers import _check_is_str, _check_data_in_range, _check_is_pos
 from database.distributions import get_shapiro_wilk_tabulated_value, shapiro_wilk, ShapiroWilkNormalityTest, draw_shapiro_wilk_tabulated_values, shapiro_wilk_to_csv, shapiro_wilk_to_xlsx
 from database.helpers import _change_locale, _export_to_csv, _check_forbidden_character, _export_to_excel, _check_conflicting_filename, LanguageManagement, AlphaManagement, NDigitsManagement
 from database.helpers import _check_blank_space, _sep_checker, _check_figure_extension, _flat_list_of_lists, _check_plot_design, _check_which_density_gaussian_kernal_plot
-from database.helpers import _check_file_name_is_str
+from database.helpers import _check_file_name_is_str, _check_decimal_separator
 from database.functions import multimode
 from database.normalitycheck import KolmogorovSmirnov, Lilliefors, AbdiMolin, AndersonDarling, ShapiroWilk, draw_critical_values, normalitycheck_fit_shapiro_wilk
 from database.normalitycheck import get_critical_value, to_xlsx, to_csv, normalitycheck_fit, draw_density_function, NormalityCheck
@@ -286,6 +286,10 @@ if __name__ == '__main__':
         _check_array_lower_size._check_array_lower_size(database_name)
         winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
         print("_check_array_lower_size was added")
+
+        _check_decimal_separator._check_decimal_separator(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("_check_decimal_separator was added")
 
         winsound.PlaySound('super_mario_finish.wav', winsound.SND_FILENAME)
         print("Done!")
