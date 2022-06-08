@@ -37,7 +37,7 @@ from database.helpers import _check_blank_space, _sep_checker, _check_figure_ext
 from database.helpers import _check_file_name_is_str, _check_decimal_separator
 from database.functions import multimode
 from database.normalitycheck import KolmogorovSmirnov, Lilliefors, AbdiMolin, AndersonDarling, ShapiroWilk, draw_critical_values, normalitycheck_fit_shapiro_wilk
-from database.normalitycheck import get_critical_value, to_xlsx, to_csv, normalitycheck_fit, draw_density_function, NormalityCheck
+from database.normalitycheck import get_critical_value, to_xlsx, to_csv, normalitycheck_fit, draw_density_function, NormalityCheck, gaussian
 from database.sample import Sample, StudentDistribution
 
 
@@ -290,6 +290,10 @@ if __name__ == '__main__':
         _check_decimal_separator._check_decimal_separator(database_name)
         winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
         print("_check_decimal_separator was added")
+
+        gaussian.gaussian(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("gaussian was added")
 
         winsound.PlaySound('super_mario_finish.wav', winsound.SND_FILENAME)
         print("Done!")
