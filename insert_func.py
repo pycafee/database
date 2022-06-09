@@ -1,6 +1,7 @@
-from database.normalitycheck import normalitycheck_fit_shapiro_wilk
+import sqlite3
+from pathlib import Path
 
-database_name="main_database_aux.db"
 
-if __name__ == '__main__':
-    normalitycheck_fit_shapiro_wilk.normalitycheck_fit_shapiro_wilk(database_name)
+data = Path(database_name)
+connection = sqlite3.connect(database_name)
+cursor = connection.cursor()

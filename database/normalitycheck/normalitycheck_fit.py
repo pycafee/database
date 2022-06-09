@@ -216,9 +216,9 @@ def normalitycheck_fit(database_name):
     position = position + 1 #15
 
     params = [
-        [['Text', "{conclusion}"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [["The 'conclusion' parameter only accepts 'critical' or 'p-value' as values, but we got", "{conclusion}"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
-        [["O parâmetro 'conclusion' aceita apenas 'critical' ou 'p-value' como valores, mas obtivemos", "{conclusion}"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+        [['Text', "{comparison}"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["The 'comparison' parameter only accepts 'critical' or 'p-value' as values, but we got", "{comparison}"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["O parâmetro 'comparison' aceita apenas 'critical' ou 'p-value' como valores, mas obtivemos", "{comparison}"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
     ]
     for param in params:
         func.insert_into_message_message_parts(*param)
