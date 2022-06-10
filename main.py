@@ -30,7 +30,7 @@ from database import creating_db, basic_inserts, default_inserts
 
 from database.checkers import _check_is_bool, _check_is_data_frame, _check_is_dict, _check_is_float_or_int, _check_list_length
 from database.checkers import _check_is_float, _check_is_integer, _check_is_list, _check_is_numpy_1_D, _check_array_lower_size
-from database.checkers import _check_is_str, _check_data_in_range, _check_is_positive, _check_is_subplots, _check_value_is_equal_or_higher_than
+from database.checkers import _check_is_str, _check_data_in_range, _check_is_positive, _check_is_subplots, _check_value_is_equal_or_higher_than, _check_value_is_equal_or_lower_than
 from database.distributions import get_shapiro_wilk_tabulated_value, shapiro_wilk, ShapiroWilkNormalityTest, draw_shapiro_wilk_tabulated_values, shapiro_wilk_to_csv, shapiro_wilk_to_xlsx
 from database.helpers import _change_locale, _export_to_csv, _check_forbidden_character, _export_to_excel, _check_conflicting_filename, LanguageManagement, AlphaManagement, NDigitsManagement
 from database.helpers import _check_blank_space, _sep_checker, _check_figure_extension, _flat_list_of_lists, _check_plot_design, _check_which_density_gaussian_kernal_plot
@@ -38,8 +38,8 @@ from database.helpers import _check_file_name_is_str, _check_decimal_separator
 from database.functions import multimode
 from database.normalitycheck import KolmogorovSmirnov, Lilliefors, AbdiMolin, AndersonDarling, ShapiroWilk, draw_critical_values, normalitycheck_fit_shapiro_wilk
 from database.normalitycheck import get_critical_value, to_xlsx, to_csv, normalitycheck_fit, draw_density_function, NormalityCheck, gaussian
-from database.sample import Sample, StudentDistribution
-
+from database.sample import Sample, StudentDistribution, Dixon
+from database.generic import generic
 
 
 database_name="main_database.db"
@@ -294,6 +294,18 @@ if __name__ == '__main__':
         gaussian.gaussian(database_name)
         winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
         print("gaussian was added")
+
+        Dixon.Dixon(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("Dixon was added")
+
+        _check_value_is_equal_or_lower_than._check_value_is_equal_or_lower_than(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("_check_value_is_equal_or_lower_than was added")
+
+        generic.generic(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("generic was added")
 
         winsound.PlaySound('super_mario_finish.wav', winsound.SND_FILENAME)
         print("Done!")

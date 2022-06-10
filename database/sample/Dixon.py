@@ -2,7 +2,7 @@ import sqlite3
 from pathlib import Path
 from database.func_aux import Funcoes as func
 
-def _check_value_is_equal_or_higher_than(database_name):
+def Dixon(database_name):
 
 
     ####################################################################
@@ -17,7 +17,7 @@ def _check_value_is_equal_or_higher_than(database_name):
     ############ INSERINDO EM FUNCAO ############
     #############################################
 
-    func_name = '_check_value_is_equal_or_higher_than'
+    func_name = 'Dixon'
     params = [
         (func_name,),
     ]
@@ -27,9 +27,9 @@ def _check_value_is_equal_or_higher_than(database_name):
 
     connection.commit()
 
-    ###############################################################
-    ############ _check_value_is_equal_or_higher_than #############
-    ###############################################################
+    ################################
+    ############ Dixon #############
+    ################################
 
     id_funcao = func.query_func_id(func_name, cursor, connection)
 
@@ -39,24 +39,26 @@ def _check_value_is_equal_or_higher_than(database_name):
 
     params = [
         [['Text',], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [['Error: lower value',], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
-        [['Erro: valor muito pequeno',], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+        [['Error: ratio not allowed',], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [['Erro: ratio não permitido',], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
     ]
     for param in params:
         func.insert_into_message_message_parts(*param)
     ###########################
 
     ###########################
-    position = position + 1
+    position = position + 1 # 2
 
     params = [
-        [['Text', "{param_name}", "Text", "{minimum}", "Text", "{value}"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [['The', "{param_name}", "parameter must be a number equal or higher than", "{minimum}", "but we got", "{value}"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
-        [['O parâmetro', "{param_name}", "deve ser um número maior ou igual a", "{minimum}", "mas obtivemos", "{value}"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+        [["Text", "{ratio}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["The 'ratio' parameter does not accept the key", "{ratio}", "The accepted keys are the following"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["O parâmetro 'ratio' não aceita a chave", "{ratio}", "As chaves aceitas são as seguintes:"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
     ]
     for param in params:
         func.insert_into_message_message_parts(*param)
     ###########################
+
+
 
 
     #################################################################
@@ -69,4 +71,4 @@ def _check_value_is_equal_or_higher_than(database_name):
 
 
 if __name__ == '__main__':
-    _check_value_is_equal_or_higher_than()
+    Dixon()
