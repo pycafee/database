@@ -38,9 +38,9 @@ def generic(database_name):
     fk_id_contributor = 1
 
     params = [
-        [['Text', 'Text', 'Text'], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [["Result", "critical", "alpha"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
-        [["Resultado", "critico", "alfa"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+        [['Text', 'Text', 'Text', "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Result", "critical", "alpha", "Statistic"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Resultado", "critico", "alfa", "Estatistica"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
     ]
     for param in params:
         func.insert_into_message_message_parts(*param)
@@ -50,9 +50,9 @@ def generic(database_name):
     position = position + 1 # 2
 
     params = [
-        [['Text', ], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [["Text", ], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
-        [["Text", ], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+        [['Text', "{test_name}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["The", "{test_name}", "test was not performed yet. Use the 'fit' method to perform the test.",], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["O teste de", "{test_name}", "não foi realizado. Utilize o método 'fit' para realizar o teste.",], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
     ]
     for param in params:
         func.insert_into_message_message_parts(*param)
