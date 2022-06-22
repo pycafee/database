@@ -58,7 +58,53 @@ def generic(database_name):
         func.insert_into_message_message_parts(*param)
     ###########################
 
+    ###########################
+    position = position + 1 # 3
 
+    params = [
+        [['Text',], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [['Error: value not supported',], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [['Erro: valor não suportado',], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 #4
+
+    params = [
+        [["Text", "{param_name}", "Text", "{list_of_keys}", "Text", "{param_value}"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["The", "{param_name}", "parameter only accepts the following values", "{list_of_keys}", "but we got", "{param_value}"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["O parâmetro", "{param_name}", "aceita apenas os seguintes valores", "{list_of_keys}", "mas recebemos", "{param_value}"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 5
+
+    params = [
+        [["Text",], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Error: Division by zero"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Erro: Divisão por zero"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 6
+
+    params = [
+        [["Text",], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["The estimated standard deviation for the dataset is equal to or very close to zero, which caused a division-by-zero error."], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["O desvio padrão estimado para o conjunto de dados é igual ou muito próximo a zero, o que causou a um erro de divisão por zero."], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
 
 
     #################################################################

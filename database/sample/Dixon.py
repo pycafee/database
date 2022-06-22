@@ -135,8 +135,8 @@ def Dixon(database_name):
 
     params = [
         [["Text", "Text", "{which}"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [["Error: key not supported", "The 'which' parameter only accepts 'lower' or 'upper' as keys, be we got", "{which}"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
-        [["Erro: chave não suportada", "O parâmetro 'which' aceita apenas 'lower' or 'upper' como chaves, mas recebemos", "{which}"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+        [["Error: key not supported", "The 'which' parameter only accepts 'min' or 'max' as keys, be we got", "{which}"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Erro: chave não suportada", "O parâmetro 'which' aceita apenas 'min' or 'max' como chaves, mas recebemos", "{which}"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
     ]
     for param in params:
         func.insert_into_message_message_parts(*param)
@@ -147,7 +147,7 @@ def Dixon(database_name):
 
     params = [
         [["Text",], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [["Error; Division by zero"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Error: Division by zero"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
         [["Erro: Divisão por zero"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
     ]
     for param in params:

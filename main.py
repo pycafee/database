@@ -28,7 +28,7 @@ import winsound
 from database import creating_db, basic_inserts, default_inserts
 
 
-from database.checkers import _check_is_bool, _check_is_data_frame, _check_is_dict, _check_is_float_or_int, _check_list_length
+from database.checkers import _check_is_bool, _check_is_data_frame, _check_is_dict, _check_is_float_or_int, _check_list_length, _check_dixon_division_by_zero
 from database.checkers import _check_is_float, _check_is_integer, _check_is_list, _check_is_numpy_1_D, _check_array_lower_size
 from database.checkers import _check_is_str, _check_data_in_range, _check_is_positive, _check_is_subplots, _check_value_is_equal_or_higher_than, _check_value_is_equal_or_lower_than
 from database.distributions import get_shapiro_wilk_tabulated_value, shapiro_wilk, ShapiroWilkNormalityTest, draw_shapiro_wilk_tabulated_values, shapiro_wilk_to_csv, shapiro_wilk_to_xlsx
@@ -38,7 +38,7 @@ from database.helpers import _check_file_name_is_str, _check_decimal_separator
 from database.functions import multimode
 from database.normalitycheck import KolmogorovSmirnov, Lilliefors, AbdiMolin, AndersonDarling, ShapiroWilk, draw_critical_values, normalitycheck_fit_shapiro_wilk
 from database.normalitycheck import get_critical_value, to_xlsx, to_csv, normalitycheck_fit, draw_density_function, NormalityCheck, gaussian
-from database.sample import Sample, StudentDistribution, Dixon
+from database.sample import Sample, StudentDistribution, Dixon, outliers
 from database.generic import generic
 
 
@@ -306,6 +306,14 @@ if __name__ == '__main__':
         generic.generic(database_name)
         winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
         print("generic was added")
+
+        outliers.outliers(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("outliers was added")
+
+        _check_dixon_division_by_zero._check_dixon_division_by_zero(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("_check_dixon_division_by_zero as added")
 
         winsound.PlaySound('super_mario_finish.wav', winsound.SND_FILENAME)
         print("Done!")
