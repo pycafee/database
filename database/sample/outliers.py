@@ -82,6 +82,41 @@ def outliers(database_name):
         func.insert_into_message_message_parts(*param)
     ###########################
 
+    ###########################
+    position = position + 1 # 5
+
+    params = [
+        [['Text'], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Modified ZScore's test for outlier detection"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Teste Z Modificado para detecção de outliers"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 6
+
+    params = [
+        [["Text",], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["The estimated median of the absolute deviations about the median for the dataset is equal to or very close to zero, which caused a division-by-zero error."], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["A mediana estimada dos desvios absolutos sobre a mediana para o conjunto de dados é igual ou muito próxima de zero, o que causou um erro de divisão por zero."], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 7
+
+    params = [
+        [["Text",], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Error: Division by zero"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Erro: Divisão por zero"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
 
     #################################################################
     ####################   FECHANDO A DATABASE   ####################
