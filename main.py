@@ -35,7 +35,7 @@ from database.distributions import get_shapiro_wilk_tabulated_value, shapiro_wil
 from database.helpers import _change_locale, _export_to_csv, _check_forbidden_character, _export_to_excel, _check_conflicting_filename, LanguageManagement, AlphaManagement, NDigitsManagement
 from database.helpers import _check_blank_space, _sep_checker, _check_figure_extension, _flat_list_of_lists, _check_plot_design, _check_which_density_gaussian_kernal_plot
 from database.helpers import _check_file_name_is_str, _check_decimal_separator
-from database.functions import multimode
+from database.functions import multimode, interquartile_range
 from database.normalitycheck import KolmogorovSmirnov, Lilliefors, AbdiMolin, AndersonDarling, ShapiroWilk, draw_critical_values, normalitycheck_fit_shapiro_wilk
 from database.normalitycheck import get_critical_value, to_xlsx, to_csv, normalitycheck_fit, draw_density_function, NormalityCheck, gaussian
 from database.sample import Sample, StudentDistribution, Dixon, outliers
@@ -314,6 +314,11 @@ if __name__ == '__main__':
         _check_dixon_division_by_zero._check_dixon_division_by_zero(database_name)
         winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
         print("_check_dixon_division_by_zero as added")
+
+        interquartile_range.interquartile_range(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("interquartile_range was adeed")
+
 
         winsound.PlaySound('super_mario_finish.wav', winsound.SND_FILENAME)
         print("Done!")

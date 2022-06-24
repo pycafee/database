@@ -6,8 +6,9 @@
 
 ### Release
 
-- Added the ModifiedZScore Class (22/06/2022)
-- Added the ZScore Class (22/06/2022)
+- Added the interquartile_range function database (24/06/2022)
+- Added the ModifiedZScore database (22/06/2022)
+- Added the ZScore database (22/06/2022)
 - Added the outliers file (22/06/2022)
 
 
