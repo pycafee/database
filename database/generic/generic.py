@@ -39,8 +39,8 @@ def generic(database_name):
 
     params = [
         [['Text', 'Text', 'Text', "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [["Result", "critical", "alpha", "Statistic"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
-        [["Resultado", "critico", "alfa", "Estatistica"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+        [["Result", "Critical", "alpha", "Statistic", "Outlier", "Interval"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Resultado", "Critico", "alfa", "Estatistica", "Outlier", "Intervalo"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
     ]
     for param in params:
         func.insert_into_message_message_parts(*param)
@@ -75,8 +75,8 @@ def generic(database_name):
 
     params = [
         [["Text", "{param_name}", "Text", "{list_of_keys}", "Text", "{param_value}"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [["The", "{param_name}", "parameter only accepts the following values", "{list_of_keys}", "but we got", "{param_value}"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
-        [["O parâmetro", "{param_name}", "aceita apenas os seguintes valores", "{list_of_keys}", "mas recebemos", "{param_value}"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+        [["The", "{param_name}", "parameter only accepts the following keys", "{list_of_keys}", "But we got", "{param_value}"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["O parâmetro", "{param_name}", "aceita apenas os seguintes chaves", "{list_of_keys}", "Mas recebemos", "{param_value}"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
     ]
     for param in params:
         func.insert_into_message_message_parts(*param)

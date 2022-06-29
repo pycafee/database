@@ -118,6 +118,19 @@ def outliers(database_name):
         func.insert_into_message_message_parts(*param)
     ###########################
 
+    ###########################
+    position = position + 1 # 8
+
+    params = [
+        [['Text'], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Tukey's test for outlier detection"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Teste de Tukey para detecção de outliers"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+
     #################################################################
     ####################   FECHANDO A DATABASE   ####################
     #################################################################
