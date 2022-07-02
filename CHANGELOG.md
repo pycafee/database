@@ -6,6 +6,7 @@
 
 ### Release
 
+- Added the Grubbs function database (01/07/2022)
 - Added the interquartile_range function database (24/06/2022)
 - Added the ModifiedZScore database (22/06/2022)
 - Added the ZScore database (22/06/2022)

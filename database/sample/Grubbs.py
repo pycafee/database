@@ -178,6 +178,21 @@ def Grubbs(database_name):
         func.insert_into_message_message_parts(*param)
     ###########################
 
+    ###########################
+    position = position + 1 # 13
+
+    params = [
+        [["Text", "{statistic}", "Text", "{critical}", "Text", "{outlier}", "Text", "{100*(1-alfa)}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Since the test statistic (", "{statistic}", ") is higher than the critical value (", "{critical}", "), we have evidence to reject the null hypothesis, and perhaps samples", "{outlier}", "and", "{outlier}", "are outliers (", "{100*(1-alfa)}", "% confidence level)"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Como a estatística do teste (", "{statistic}", ") é maior do que o valor crítico (", "{critical}", "), temos evidências para rejeitar a hipótese nula, e talvez as amostras", "{outlier}", "e", "{outlier}", "sejam outliers (", "{100*(1-alfa)}", "% de confiança)"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+
+
+
 
     #################################################################
     ####################   FECHANDO A DATABASE   ####################
