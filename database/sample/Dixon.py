@@ -87,7 +87,7 @@ def Dixon(database_name):
 
     params = [
         [["Text", "{100*(1-alfa)}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
-        [["Data do not have outliers (with", "{100*(1-alfa)}", "% confidence)"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["The data does not have outliers (with", "{100*(1-alfa)}", "% confidence)"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
         [["Os dados não apresentam outliers (com", "{100*(1-alfa)}", "% de confiança)"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
     ]
     for param in params:
