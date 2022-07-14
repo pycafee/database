@@ -421,6 +421,30 @@ def StudentDistribution(database_name):
         func.insert_into_message_message_parts(*param)
     ###########################
 
+    ###########################
+    position = position + 1 # 33
+
+    params = [
+        [["Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Error: conflicting parameters"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Erro: parâmetros conflitantes"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 34
+
+    params = [
+        [["Text",], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Parameters 'x_exp' and 'params' cannot be of type 'None' at the same time."], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Os parâmetros 'x_exp' e 'params' não podem ser do tipo 'None' ao mesmo tempo."], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
 
     #################################################################
     ####################   FECHANDO A DATABASE   ####################
