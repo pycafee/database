@@ -40,7 +40,7 @@ from database.normalitycheck import KolmogorovSmirnov, Lilliefors, AbdiMolin, An
 from database.normalitycheck import get_critical_value, to_xlsx, to_csv, normalitycheck_fit, draw_density_function, NormalityCheck, gaussian
 from database.sample import Sample, StudentDistribution, Dixon, outliers, Grubbs
 from database.generic import generic
-
+from database.sensoryanalysis import discriminative_tests
 
 database_name="main_database.db"
 
@@ -322,6 +322,12 @@ if __name__ == '__main__':
         Grubbs.Grubbs(database_name)
         winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
         print("Grubbs was added")
+
+
+        discriminative_tests.discriminative_tests(database_name)
+        winsound.PlaySound('coin.wav', winsound.SND_FILENAME)
+        print("discriminative_tests was added")
+
 
 
         winsound.PlaySound('super_mario_finish.wav', winsound.SND_FILENAME)

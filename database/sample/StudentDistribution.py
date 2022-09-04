@@ -445,6 +445,102 @@ def StudentDistribution(database_name):
         func.insert_into_message_message_parts(*param)
     ###########################
 
+    ###########################
+    position = position + 1 # 35
+
+    params = [
+        [["Text",], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Error: incompatible sample size"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Erro: tamanho amostral incompatível"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 36
+
+    params = [
+        [["Text", "{names[0]}", "Text", "{names[1]}", "Text", "{names[0]}", "Text", "{n_1}", "Text", "{names[1]}", "Text", "{n_2}"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["The sample size of", "{names[0]}", "and", "{names[1]}", "must be equal, but the number of samples from", "{names[0]}", "is equal to", "{n_1}", ", while the number of samples from ", "{names[1]}", "is equal to", "{n_2}"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["O tamanho amostral de", "{names[0]}", "e", "{names[1]}", "deve ser igual, mas o número de amostras de", "{names[0]}", "é igual a", "{n_1}", ", enquanto que o número de amostras de", "{names[1]}", "é igual a", "{n_2}"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 37
+
+    params = [
+        [["Text", "{100*(1-alfa)}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["The paired samples are equal (with", "{100*(1-alfa)}", "% confidence)."], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["As amostras pareadas são iguais (com", "{100*(1-alfa)}", "% de confiança)"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 38
+
+    params = [
+        [["Text", "{statistic}", "Text", "{low,high}", "Text", "{name_1}", "({mean_1})", "Text", "{name_2}", "({mean_2})", "Text", "{100*(1-alfa)}", "Text", "Text", "{value}"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["As the test statistic (", "{statistic}", ") is a number between the critical values (", "{low,high}", "), we have no evidence to reject the null hypothesis of equality between the means of paired samples", "{name_1}", "({mean_1})", "and", "{name_2}", "({mean_2})", "(with", "{100*(1-alfa)}", "% confidence)", "and they don't differ by", "{value}"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Como a estatística do teste (", "{statistic}", ") é um número entre os valores críticos (", "{low,high}", "), não temos evidências para rejeitar a hipótese nula de igualdade entre as médias das amostras pareadas", "{name_1}", "({mean_1})", "e", "{name_2}", "({mean_2})", "(com", "{100*(1-alfa)}", "% de confiança)", "e elas não diferem em", "{value}"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 39
+
+    params = [
+        [["Text", "{100*(1-alfa)}", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["The paired samples are different (with", "{100*(1-alfa)}", "% confidence)."], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["As amostras pareadas são diferentes (com", "{100*(1-alfa)}", "% de confiança)"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 40
+
+    params = [
+        [["Text", "{statistic}", "Text", "{critical}", "Text", "{name_1}", "{mean_1}", "Text", "{name_2}", "{mean_2}", "Text", "{100*(1-alfa)}", "Text", "Text", "{value}"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["As the test statistic (", "{statistic}", ") is higher than the upper critical value (", "{critical}", "), we have evidence to reject the null hypothesis of equality between the means of the paired samples. Thus, sample", "{name_1}", "{mean_1}", "is different from sample", "{name_2}", "{mean_2}", "(with", "{100*(1-alfa)}", "% confidence)", "and they differ by", "{value}"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Como a estatística do teste (", "{statistic}", ") é maior do que o valor crítico superior (", "{critical}", "), temos evidências para rejeitar a hipótese nula de igualdade entre as médias das amostras pareadas. Assim, a amostra", "{name_1}", "{mean_1}", "é diferente da amostra", "{name_2}", "{mean_2}", "(com", "{100*(1-alfa)}", "% de confiança)", "e elas diferem em", "{value}"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 41
+
+    params = [
+        [["Text", "{statistic}", "Text", "{critical}", "Text", "{name_1}", "{mean_1}", "Text", "{name_2}", "{mean_2}", "Text", "{100*(1-alfa)}", "Text", "Text", "{value}"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["As the test statistic (", "{statistic}", ") is lower than the lower critical value (", "{critical}", "), we have evidence to reject the null hypothesis of equality between the means of the paired samples. Thus, sample", "{name_1}", "{mean_1}", "is different from sample", "{name_2}", "{mean_2}", "(with", "{100*(1-alfa)}", "% confidence)", "and they differ by", "{value}"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Como a estatística do teste (", "{statistic}", ") é menor do que o valor crítico inferior (", "{critical}", "), temos evidências para rejeitar a hipótese nula de igualdade entre as médias das amostras pareadas. Assim, a amostra", "{name_1}", "{mean_1}", "é diferente da amostra", "{name_2}", "{mean_2}", "(com", "{100*(1-alfa)}", "% de confiança)", "e elas diferem em", "{value}"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     #################################################################
     ####################   FECHANDO A DATABASE   ####################

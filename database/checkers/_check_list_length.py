@@ -47,12 +47,24 @@ def _check_list_length(database_name):
     ###########################
 
     ###########################
-    position = position + 1
+    position = position + 1 #2
 
     params = [
         [['Text', "{param_name}", "Text", "{n}", "Text", "{len(value)}"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
         [['The ', "{param_name}", "parameter must have size equal to", "{n}", ", but its size is", "{len(value)}"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
         [['O parâmetro', "{param_name}", "deve ter tamanho igual a", "{n}", ", mas seu tamanho é", "{len(value)}"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 #3
+
+    params = [
+        [['Text', "{param_name}", "Text", "{n}", "Text", "{len(value)}"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [['The ', "{param_name}", "parameter must have size equal or higher than", "{n}", ", but its size is", "{len(value)}"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [['O parâmetro', "{param_name}", "deve ter tamanho igual ou maior do que ", "{n}", ", mas seu tamanho é", "{len(value)}"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
     ]
     for param in params:
         func.insert_into_message_message_parts(*param)
