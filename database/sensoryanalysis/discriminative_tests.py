@@ -112,6 +112,92 @@ def discriminative_tests(database_name):
         func.insert_into_message_message_parts(*param)
     ###########################
 
+    ###########################
+    position = position + 1 # 7
+
+    params = [
+        [["Text", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Error: Incompatible data", "The total number of answers (total_of_answers) must be greater than or equal to the number of correct answers (n_of_correct_answers), but we got:"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Erro: Dados incompatíveis", "O número total de respostas (total_of_answers) deve ser maior ou igual ao número de respostas corretas (n_of_correct_answers), mas recebemos:"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 8
+
+    params = [
+        [["Text", "Text", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Samples are equal (with", "{1-alfa}*100", "% confidence)."], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["As amostras são iguais (com", "{1-alfa}*100", "% de confiança)."], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 9
+
+    params = [
+        [["Text", "{proportion_distinguishers}", "Text", "{lower}", "Text", "{upper}", "Text", "{1-alfa}*100", "% confidence)."], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["As the proportion of discriminators (", "{proportion_distinguishers}", ") is between the lower (", "{lower}", ") and upper limits (", "{upper}","), we have no evidence to reject the null hypothesis of equality between the samples (with", "{1-alfa}*100", "% confidence)."], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Como a proporção de discriminadores (", "{proportion_distinguishers}", ") esta entre os limites inferior (", "{lower}", ") e superior (", "{upper}","), não temos evidências para rejeitar a hipótese nula de igualdade entre as amostras (com", "{1-alfa}*100", "% de confiança)."], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 10
+
+    params = [
+        [["Text", "Text", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["Samples are different (with", "{1-alfa}*100", "% confidence)."], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["As amostras são diferentes (com", "{1-alfa}*100", "% de confiança)."], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 11
+
+    params = [
+        [["Text", "{proportion_distinguishers}", "Text", "{lower}", "Text", "{1-alfa}*100", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["As the proportion of discriminators (", "{proportion_distinguishers}", ") is less than the lower bound (", "{lower}", "), we have evidence to reject the null hypothesis of equality between the samples (with", "{1-alfa}*100", "confidence)."], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Como a proporção de discriminadores (", "{proportion_distinguishers}", "é menor que o limite inferior (", "{lower}", "), temos evidências para rejeitar a hipótese nula de igualdade entre as amostras (com", "{1-alfa}*100", "% de confiança)."], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 12
+
+    params = [
+        [["Text", "{proportion_distinguishers}", "Text", "{upper}", "Text", "{1-alfa}*100", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["As the proportion of discriminators (", "{proportion_distinguishers}", ") is greter than the upper bound (", "{upper}", "), we have evidence to reject the null hypothesis of equality between the samples (with", "{1-alfa}*100", "confidence)."], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["Como a proporção de discriminadores (", "{proportion_distinguishers}", "é maior que o limite superior (", "{upper}", "), temos evidências para rejeitar a hipótese nula de igualdade entre as amostras (com", "{1-alfa}*100", "% de confiança)."], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+    ###########################
+    position = position + 1 # 13
+
+    params = [
+        [["Text", "Text", "Text", "Text", "Text", "Text", "Text", "Text"], position, fk_id_function, 1, cursor, connection, fk_id_contributor], # univ
+        [["TriangularTest", "DistinguishersProportion", "CorrectProportion", "DistinguishersProportionStd", "DistinguishersProportionCI", "ConfidenceInterval", "Alpha", "Z_value"], position, fk_id_function, 2, cursor, connection, fk_id_contributor], # en
+        [["TesteTriangular", "ProporcaoDistintores", "ProporcaoAcertos", "ProporcaoDistintoresDesvPad", "ProporcaoDistintoresIC", "IntervaloConfianca", "Alfa", "Z_valor"], position, fk_id_function, 3, cursor, connection, fk_id_contributor], # pt-br
+    ]
+    for param in params:
+        func.insert_into_message_message_parts(*param)
+    ###########################
+
+
+
     #################################################################
     ####################   FECHANDO A DATABASE   ####################
     #################################################################
